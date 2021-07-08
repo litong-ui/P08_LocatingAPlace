@@ -29,11 +29,9 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnNorth, btnCentral, btnEast;
+//    Button btnNorth, btnCentral, btnEast;
     private GoogleMap map;
     Spinner spn;
-    ArrayList<String> al;
-    ArrayAdapter<String> aa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
         SupportMapFragment mapFragment = (SupportMapFragment)
                 fm.findFragmentById(R.id.map);
 
-        btnNorth = findViewById(R.id.btn1);
-        btnCentral = findViewById(R.id.btn2);
-        btnEast = findViewById(R.id.btn3);
+//        btnNorth = findViewById(R.id.btn1);
+//        btnCentral = findViewById(R.id.btn2);
+//        btnEast = findViewById(R.id.btn3);
 
         spn = findViewById(R.id.spinner);
 
@@ -97,40 +95,38 @@ public class MainActivity extends AppCompatActivity {
                                 "Tel:66776677\"\n")
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
 
-                btnNorth.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        map.moveCamera(CameraUpdateFactory.newLatLngZoom(poi_North, 13));
-                        String msg = north.getTitle();
-                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-                btnCentral.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        map.moveCamera(CameraUpdateFactory.newLatLngZoom(poi_Central, 13));
-                        String msg = central.getTitle();
-                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-                btnEast.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        map.moveCamera(CameraUpdateFactory.newLatLngZoom(poi_East, 13));
-                        String msg = east.getTitle();
-                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
-                    }
-                });
+//                btnNorth.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        map.moveCamera(CameraUpdateFactory.newLatLngZoom(poi_North, 13));
+//                        String msg = north.getTitle();
+//                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//
+//                btnCentral.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        map.moveCamera(CameraUpdateFactory.newLatLngZoom(poi_Central, 13));
+//                        String msg = central.getTitle();
+//                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//
+//                btnEast.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        map.moveCamera(CameraUpdateFactory.newLatLngZoom(poi_East, 13));
+//                        String msg = east.getTitle();
+//                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+//                    }
+//                });
 
                 spn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                         if (i == 0){
-                            map.moveCamera(CameraUpdateFactory.newLatLngZoom(poi_North, 13));
-                            String msg = north.getTitle();
-                            Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                            map.moveCamera(CameraUpdateFactory.newLatLngZoom(poi_Original, 10));
                         } else if (i == 1){
                             map.moveCamera(CameraUpdateFactory.newLatLngZoom(poi_Central, 13));
                             String msg = central.getTitle();
@@ -138,6 +134,10 @@ public class MainActivity extends AppCompatActivity {
                         } else if (i == 2){
                             map.moveCamera(CameraUpdateFactory.newLatLngZoom(poi_East, 13));
                             String msg = east.getTitle();
+                            Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                        } else if (i == 3){
+                            map.moveCamera(CameraUpdateFactory.newLatLngZoom(poi_North, 13));
+                            String msg = north.getTitle();
                             Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
                         }
                     }

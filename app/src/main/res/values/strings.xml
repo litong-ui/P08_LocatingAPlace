@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">P08_LocatingAPlace</string>
     <string-array name="locations">
-        <item>North</item>
+        <item> </item>
         <item>Central</item>
         <item>East</item>
+        <item>North</item>
     </string-array>
 </resources>
