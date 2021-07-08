@@ -75,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
                                 "Tel:65433456\n")
                         .icon(BitmapDescriptorFactory.fromResource(R.drawable.star)));
 
+
+
                 // place marker "Central"
                 LatLng poi_Central = new LatLng(1.3107162,103.8396721);
                 Marker central = map.addMarker(new MarkerOptions()
@@ -94,6 +96,14 @@ public class MainActivity extends AppCompatActivity {
                                 "Operating hours: 9am-5pm\n" +
                                 "Tel:66776677\"\n")
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+
+                map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                    @Override
+                    public boolean onMarkerClick(Marker marker) {
+                        Toast.makeText(MainActivity.this, marker.getTitle(), Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                });
 
 //                btnNorth.setOnClickListener(new View.OnClickListener() {
 //                    @Override
